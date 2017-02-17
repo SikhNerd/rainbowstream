@@ -62,6 +62,6 @@ def draw_iterm_image(source):
         'preserveAspectRatio': 'true',
     }
     imageConfig = ';'.join(['{}={}'.format(k, v) for k, v in config.items()])
-    result = '\033]1337;File={config}:{image}\a\n'.format(config=imageConfig,
+    result = '\033Ptmux;\033\033]1337;File={config}:{image}\a\033\\\n'.format(config=imageConfig,
                                                           image=encodedImage)
     sys.stdout.write(result)
